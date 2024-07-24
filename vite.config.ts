@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { htmj } from './src'
+import { viscapism } from './src'
 import dtsPlugin from 'vite-plugin-dts'
 
 export default defineConfig((env) => {
@@ -18,7 +18,7 @@ export default defineConfig((env) => {
   } else {
     return {
       plugins: [
-        htmj({
+        viscapism({
           srcFolderName: 'playground',
           assets: 'split',
         }),

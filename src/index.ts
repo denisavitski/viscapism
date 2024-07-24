@@ -1,1 +1,1 @@
-export { htmj, type HTMJOptions } from './plugin'
+export { viscapism, type ViscapismOptions } from './plugin'
