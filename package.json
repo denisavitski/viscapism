@@ -1,6 +1,6 @@
 {
   "name": "viscapism",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/denisavitski/viscapism.git"
@@ -21,7 +21,19 @@
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/index.js"
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./jsx": {
+      "import": "./lib/jsx/index.js",
+      "types": "./lib/jsx/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "jsx": [
+        "lib/jsx/index.d.ts"
+      ]
     }
   },
   "scripts": {

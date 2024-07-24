@@ -11,8 +11,14 @@ export default defineConfig((env) => {
         }),
       ],
       build: {
-        ssr: 'src/index.ts',
+        ssr: true,
         outDir: 'lib',
+        rollupOptions: {
+          input: {
+            index: './src/index.ts',
+            'jsx/index': './src/jsx/index.ts',
+          },
+        },
       },
     }
   } else {

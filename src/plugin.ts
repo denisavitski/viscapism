@@ -343,7 +343,7 @@ class Viscapism {
     await build({
       entryPoints: [parameters.entryPoint],
       bundle: true,
-      alias: { '@jsx': resolve(__dirname, 'jsx') },
+      alias: { '@jsx': resolve(new URL('.', import.meta.url).pathname, 'jsx') },
       jsxFactory: 'h',
       jsxFragment: 'Fragment',
       inject: ['@jsx'],
