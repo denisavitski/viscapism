@@ -353,8 +353,6 @@ class Viscapism {
         {
           name: '_',
           setup: (build) => {
-            console.log('----')
-
             build.onLoad({ filter: /\.(tsx|jsx)/ }, async (args) => {
               if (parameters.context) {
                 this.#dependecies.get(parameters.context)!.add(args.path)
