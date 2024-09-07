@@ -1,38 +1,17 @@
 import { Button } from '@components/Button'
+import { Layout } from '@components/Layout'
 
 export const Page: JSX.RenderFunction = () => {
-  style({
-    '*': {
-      color: 'red',
-    },
+  client(() => {
+    console.log('HOME')
   })
 
   return (
-    <>
-      <Button
-        client={{
-          id: 'button-1',
-          logValue: '1',
-        }}
-      >
-        123
-      </Button>
-      <Button
-        client={{
-          id: 'button-2',
-          logValue: '2',
-        }}
-      >
-        123
-      </Button>
-      <Button
-        client={{
-          id: 'button-3',
-          logValue: '3',
-        }}
-      >
-        123
-      </Button>
-    </>
+    <Layout>
+      <h1>HOME</h1>
+      <Button client={{ color: 'red', id: 'button-1', logValue: 'button 1' }}>button 1</Button>
+      <Button client={{ color: 'blue', id: 'button-2', logValue: 'button 2' }}>button 2</Button>
+      <Button client={{ color: 'green', id: 'button-3', logValue: 'button 3' }}>button 3</Button>
+    </Layout>
   )
 }

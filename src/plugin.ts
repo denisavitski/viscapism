@@ -337,9 +337,6 @@ class Viscapism {
   }
 
   async #build(parameters: { entryPoint: string; outfile: string; context?: string }) {
-    styleResource.clear()
-    clientResource.clear()
-
     await build({
       entryPoints: [parameters.entryPoint],
       bundle: true,
@@ -381,21 +378,27 @@ class Viscapism {
       }
     }
 
+    styleResource.clear()
+    clientResource.clear()
+
     let html = ''
     if (renderFunction) {
       html = await renderFunction()
     }
 
+    const clientResourceAcc = clientResource.acc
+    const styleResourceAcc = styleResource.acc
+
     let js = ''
-    if (clientResource.acc) {
+    if (clientResourceAcc) {
       const file = await readFile(parameters.entryPoint, 'utf-8')
 
       const imports = this.#getAllImports(file)
 
-      js = `${imports.join(';\n')}${imports.length ? ';\n\n' : ''}${clientResource.acc}`
+      js = `${imports.join(';\n')}${imports.length ? ';\n\n' : ''}${clientResourceAcc}`
     }
 
-    const css = styleResource.acc
+    const css = styleResourceAcc
 
     const renderResult: ModuleRenderResult = {
       html,

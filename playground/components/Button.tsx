@@ -1,7 +1,9 @@
-export const Button: JSX.RenderFunction<{ client: { logValue: string; id: string } }> = (props) => {
+export const Button: JSX.RenderFunction<{
+  client: { logValue: string; id: string; color: string }
+}> = (props) => {
   style({
-    button: {
-      color: 'blue',
+    [`#${props?.client.id}`]: {
+      color: props?.client.color,
     },
   })
 

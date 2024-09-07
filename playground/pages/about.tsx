@@ -1,12 +1,6 @@
 import { Layout } from '@components/Layout'
 
 export const Page: JSX.RenderFunction = () => {
-  style({
-    '*': {
-      color: 'orange',
-    },
-  })
-
   client(() => {
     console.log('ABOUT')
   })
